@@ -29,8 +29,11 @@ ARIMA model, and checks whether it actually beats a naive baseline.
 
 * For **cases**, SARIMA improves on the baseline by ~18 % MAE. It captures the slow
   upward trend in early April that the flat naive forecast misses.
-* For **deaths**, the naive baseline wins. Deaths were falling steadily in this period,
-  and the model over-extrapolates. A good reminder to always report a baseline.
+* For **deaths**, the naive baseline wins. Deaths had been falling for two months and
+  SARIMA extrapolated that decline, but deaths plateaued at ~1,000/day during the test
+  period, so the model under-forecasts. A good reminder to always report a baseline.
+
+![28-day forecast of daily new deaths](docs/forecast_new_deaths.png)
 * The 80 % intervals cover 100 % (cases) and 93 % (deaths) of observed days, but they
   widen quickly with the horizon. They're too wide to be very useful beyond ~2 weeks.
 
